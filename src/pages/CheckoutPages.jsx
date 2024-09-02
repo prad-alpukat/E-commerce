@@ -1,21 +1,24 @@
 import React, { useState } from "react";
-import { useCart } from "../contexts/CartContext"; // Import context untuk akses cart
+import { useCart } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckoutPage() {
-  const { cart } = useCart(); // Ambil data keranjang dari context
+  const { cart } = useCart();
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("creditCard");
+  const navigate = useNavigate();
 
-  // Hitung total harga keranjang
   const totalAmount = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
 
   const handleCheckout = () => {
-    alert("Checkout completed!");
-    // Implementasi checkout logic di sini
+    // Navigasi ke halaman struk nota dengan data checkout
+    navigate("/nota", {
+      state: { cart, totalAmount, name, address, paymentMethod },
+    });
   };
 
   const handleBack = () => {
@@ -35,10 +38,10 @@ export default function CheckoutPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Order Summary */}
         <div className="bg-white p-6 border rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
+          <h2 className="text-2xl font-semibold mb-4">Pesanan</h2>
           <div className="space-y-4">
             {cart.length === 0 ? (
-              <p>Your cart is empty.</p>
+              <p>Keranjang anda kosong.</p>
             ) : (
               cart.map((item) => (
                 <div key={item.id} className="flex justify-between mb-4">
@@ -63,7 +66,7 @@ export default function CheckoutPage() {
 
         {/* Shipping Information */}
         <div className="bg-white p-6 border rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Shipping Information</h2>
+          <h2 className="text-2xl font-semibold mb-4">Informasi Pengiriman</h2>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -91,7 +94,7 @@ export default function CheckoutPage() {
                 htmlFor="address"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Address
+                Alamat Pengiriman
               </label>
               <textarea
                 id="address"
@@ -104,7 +107,7 @@ export default function CheckoutPage() {
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Payment Method
+                Metode Pembayaran
               </label>
               <select
                 value={paymentMethod}
@@ -120,7 +123,7 @@ export default function CheckoutPage() {
               type="submit"
               className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out"
             >
-              Complete Purchase
+              Pembayaran Berhasil
             </button>
           </form>
         </div>

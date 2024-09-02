@@ -21,10 +21,23 @@ export default function ProductsList() {
     return <h1>loading... </h1>;
   }
 
+  if (loading) {
+    return <h1>loading... </h1>;
+  }
+
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
       <Header />
-
+      <button
+        onClick={handleBack}
+        className="mx-4 border p-2 rounded bg-gray-300 mb-4 mt-5"
+      >
+        Back
+      </button>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4  ">
         {products.map((product) => (
           <div key={product.id} className="border p-4 items-center ">
