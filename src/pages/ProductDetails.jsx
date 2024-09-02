@@ -49,7 +49,6 @@ export default function ProductDetails() {
   const handleBack = () => {
     // Menggunakan navigate
     // navigate(-1); // Mengembalikan ke halaman sebelumnya
-
     window.history.back(); // Mengembalikan ke halaman sebelumnya
   };
 
