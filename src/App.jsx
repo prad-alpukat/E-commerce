@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Products from "./pages/AllProducts";
 import ProductDetails from "./pages/ProductDetails";
 import CartProducts from "./pages/CartProducts";
+import CategoriesProducts from "./pages/CategoriesProducts";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartProducts />} />
+        <Route path="/categories/:category" element={<CategoriesProducts />} />
       </Routes>
     </BrowserRouter>
   );

@@ -15,7 +15,7 @@ export default function CartProducts() {
       {/* tombol kembali */}
       <button
         onClick={handleBack}
-        className=" mx-4 border p-2 rounded bg-gray-300 mb-4"
+        className=" mx-4 border p-2 rounded bg-gray-300 mb-4 mt-5"
       >
         Back
       </button>

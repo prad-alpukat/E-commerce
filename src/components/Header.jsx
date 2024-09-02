@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div className="header container grid grid-cols-3 justify-between">
+    <div className="relative top-0  grid grid-cols-3 justify-between items-center py-5 bg-slate-800 px-10 text-white">
       <h1>Header</h1>
 
       <div className="flex justify-center gap-4">

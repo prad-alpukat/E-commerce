@@ -9,7 +9,7 @@ export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
-  const { addToCart } = useCart(); // Access addToCart from CartContext
+  const { addToCart } = useCart(); // akses addToCart dari useCart (api context)
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -38,6 +38,7 @@ export default function ProductDetails() {
     const cartItem = { ...product, quantity };
     addToCart(cartItem);
     alert(`${product.title} di tambahkan ke keranjang!`);
+    setQuantity(1);
   };
 
   const handleBuyNow = () => {
@@ -46,7 +47,10 @@ export default function ProductDetails() {
   };
 
   const handleBack = () => {
-    navigate(-1); // Go back to the previous page
+    // Menggunakan navigate
+    // navigate(-1); // Mengembalikan ke halaman sebelumnya
+
+    window.history.back(); // Mengembalikan ke halaman sebelumnya
   };
 
   return (
@@ -54,7 +58,7 @@ export default function ProductDetails() {
       <Header />
       <button
         onClick={handleBack}
-        className=" mx-4 border p-2 rounded bg-gray-300 mb-4"
+        className=" mx-4 border p-2 rounded bg-gray-300 mb-4 mt-5"
       >
         Back
       </button>
