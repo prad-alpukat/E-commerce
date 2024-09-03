@@ -6,7 +6,7 @@ export default function HeroPages() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url(https://source.unsplash.com/random/1600x900)",
+          backgroundImage: "url(https://picsum.photos/1600/900)",
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>

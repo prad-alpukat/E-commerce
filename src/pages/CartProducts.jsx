@@ -16,7 +16,7 @@ export default function CartProducts() {
   };
 
   return (
-    <>
+    <div className="mt-16 bg-slate-800 min-h-screen">
       <Header />
       {/* tombol kembali */}
       <button
@@ -26,7 +26,7 @@ export default function CartProducts() {
         Back
       </button>
 
-      <div className="p-4 container">
+      <div className="p-4 container text-white">
         <h1 className="text-3xl font-bold mb-4">Your Cart</h1>
         {cart.length === 0 ? (
           <p>Your cart is empty.</p>
@@ -35,11 +35,11 @@ export default function CartProducts() {
             <ul>
               {cart.map((item) => (
                 <li key={item.id} className="mb-4">
-                  <div className="border p-4 rounded flex items-center">
+                  <div className="border p-4 rounded flex items-center bg-white text-black">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-24 h-24 object-cover mr-4"
+                      className="w-24 bg-white object-cover mr-4"
                     />
                     <div>
                       <h2 className="text-xl font-semibold">{item.title}</h2>
@@ -63,7 +63,7 @@ export default function CartProducts() {
               </h2>
               <button
                 onClick={handleBuyNow}
-                className="border p-2 rounded bg-green-300 mt-4"
+                className="border p-2 rounded bg-yellow-400 text-black mt-4"
               >
                 Proceed to Checkout
               </button>
@@ -71,6 +71,6 @@ export default function CartProducts() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

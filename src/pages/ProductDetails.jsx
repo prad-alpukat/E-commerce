@@ -53,7 +53,7 @@ export default function ProductDetails() {
   };
 
   return (
-    <>
+    <div div className="mt-16 bg-slate-800 min-h-screen">
       <Header />
       <button
         onClick={handleBack}
@@ -63,14 +63,14 @@ export default function ProductDetails() {
       </button>
 
       <div className="container p-4 grid md:grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="border-2 rounded p-4">
+        <div className="border-2 rounded p-4 bg-white">
           <img
             src={product.image}
             alt={product.title}
-            className="mx-auto p-4 h-96 w-96"
+            className="mx-auto p-4 h-96 w-96 "
           />
         </div>
-        <div className="p-4 flex flex-col justify-center">
+        <div className="p-4 flex flex-col justify-center text-white">
           <h1 className="text-2xl font-bold py-3">{product.title}</h1>
           <p className="text-xl">{product.category}</p>
           <p className="text-xl font-bold py-2">$ {product.price}</p>
@@ -80,7 +80,7 @@ export default function ProductDetails() {
             <div className="py-4 flex items-center">
               <button
                 onClick={handleDecrease}
-                className="border p-2 rounded bg-blue-300 mr-2"
+                className="border p-2 rounded  mr-2"
                 aria-label="Decrease quantity"
               >
                 -
@@ -88,7 +88,7 @@ export default function ProductDetails() {
               <span className="text-lg mx-2">{quantity}</span>
               <button
                 onClick={handleIncrease}
-                className="border p-2 rounded bg-blue-300 ml-2"
+                className="border p-2 rounded  ml-2"
                 aria-label="Increase quantity"
               >
                 +
@@ -104,22 +104,22 @@ export default function ProductDetails() {
           </div>
 
           {/* Buttons */}
-          <div className="py-4">
+          <div className="py-4 text-black">
             <button
               onClick={handleAddToCart}
-              className="border p-2 rounded bg-green-300 mr-2"
+              className="border p-2 rounded bg-yellow-400 mr-2"
             >
               Add to Cart
             </button>
             <button
               onClick={handleBuyNow}
-              className="border p-2 rounded bg-red-300 ml-2"
+              className="border p-2 rounded bg-yellow-400 ml-2"
             >
               Buy Now
             </button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

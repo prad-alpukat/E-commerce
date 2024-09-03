@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../contexts/CartContext";
+import { Link } from "react-router-dom";
 
 export default function CategoriesProducts() {
   const [categories, setCategories] = useState([]);
@@ -66,7 +67,7 @@ export default function CategoriesProducts() {
               alt={product.title}
               className="w-full h-48 object-cover mb-2"
             />
-            <h2 className="text-xl font-semibold mb-2">{product.title}</h2>
+            {/* <h2 className="text-xl font-semibold mb-2">{product.title}</h2> */}
             <p className="text-lg font-bold mb-2">$ {product.price}</p>
             <p className="text-sm mb-2">{product.category}</p>
             <div className="flex items-center mb-2">
@@ -84,12 +85,20 @@ export default function CategoriesProducts() {
                 -
               </button>
             </div>
-            <button
-              onClick={() => handleAddToCart(product)}
-              className="bg-green-500 text-white p-2 rounded mt-2 w-full"
-            >
-              Add to Cart
-            </button>
+            <div className="flex justify-between gap-4 ">
+              <Link
+                to={`/products/${product.id}`}
+                className="border p-2 rounded bg-yellow-400 mt-2 w-full text-center"
+              >
+                View
+              </Link>
+              <button
+                onClick={() => handleAddToCart(product)}
+                className="bg-green-500 text-white p-2 rounded mt-2 w-full"
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
         ))}
       </div>
