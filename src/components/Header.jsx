@@ -21,7 +21,7 @@ export default function Header() {
         <h1 className="text-3xl font-bold">Header</h1>
 
         <nav className="hidden md:flex gap-4 items-center text-xl">
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
           <Link to="/products">All Products</Link>
         </nav>
 

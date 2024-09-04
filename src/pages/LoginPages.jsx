@@ -44,7 +44,7 @@ export default function LoginPage() {
           title: "Login Berhasil",
           text: "Anda berhasil masuk!",
         }).then(() => {
-          navigate("/"); // Redirect ke halaman pengguna setelah login
+          navigate("/home"); // Redirect ke halaman pengguna setelah login
         });
       } else {
         Swal.fire({

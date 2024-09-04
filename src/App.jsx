@@ -9,12 +9,14 @@ import NotaPage from "./pages/NotaPages";
 import LoginPages from "./pages/LoginPages";
 import UserPages from "./pages/UserPages";
 import Footer from "./components/Footer";
+import LoginPage from "./pages/LoginPages";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartProducts />} />
