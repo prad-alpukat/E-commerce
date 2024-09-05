@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext"; // Import useCart
-
 import LogoutButton from "./LogoutButton";
 
 export default function Header() {
@@ -16,9 +15,12 @@ export default function Header() {
   const displayItems = totalItems > 99 ? "99+" : totalItems;
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-slate-800 text-white py-5 px-10">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#100F0F] text-white py-5 px-10">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Header</h1>
+        {/* Logo */}
+        <Link to="/home">
+          <h1 className="text-3xl font-bold">Toko Online </h1>
+        </Link>
 
         <nav className="hidden md:flex gap-4 items-center text-xl">
           <Link to="/home">Home</Link>
@@ -26,6 +28,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4 relative text-xl">
+          {/* Cart Icon */}
           <Link to="/cart" className="relative">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,6 +47,8 @@ export default function Header() {
               </div>
             )}
           </Link>
+
+          {/* User Icon */}
           <Link to="/user">
             <svg
               xmlns="http://www.w3.org/2000/svg"

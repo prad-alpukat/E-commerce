@@ -10,6 +10,7 @@ import LoginPages from "./pages/LoginPages";
 import UserPages from "./pages/UserPages";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPages";
+import FavoriteProduct from "./components/FavoriteProduct";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/favorites" element={<FavoriteProduct />} />
         <Route path="/cart" element={<CartProducts />} />
         <Route path="/login" element={<LoginPages />} />
         <Route path="/user" element={<UserPages />} />
