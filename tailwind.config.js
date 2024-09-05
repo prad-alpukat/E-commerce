@@ -9,6 +9,18 @@ export default {
         lg: "16px",
         xl: "24px",
       },
+      colors: {
+        primary: "#186E71",
+      },
+      height: {
+        128: "32rem",
+        144: "36rem",
+        160: "40rem",
+        192: "48rem",
+        256: "64rem",
+        320: "80rem",
+        384: "96rem",
+      },
     },
     container: {
       center: true,
