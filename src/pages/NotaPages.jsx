@@ -1,16 +1,18 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import Products from "./AllProducts";
 
 export default function NotaPage() {
   const { state } = useLocation();
-  const { cart, totalAmount, name, address, paymentMethod } = state || {};
+  const { cart, totalAmount, name, address, paymentMethod, title, products } =
+    state || {};
 
   if (!cart || !totalAmount) {
     return <p>tidak ada nota yang tersedia.</p>;
   }
 
   const handlePrint = () => {
-    window.print();
+    window.location.href = `https://wa.me/+6282290525240?text=${`Halo kak, nama saya ${name} saya ingin memesan ${title}   dengan total belanja $ ${totalAmount} dengan metode pembayaran ${paymentMethod} dan alamat ${address}`}`;
   };
 
   const handleBack = () => {
@@ -26,7 +28,7 @@ export default function NotaPage() {
         Back
       </button>
       <div className="container mx-auto p-6 max-w-4xl">
-        <h1 className="text-3xl font-bold mb-6">Struct Nota</h1>
+        <h1 className="text-3xl font-bold mb-6">Detail Pemesanan</h1>
         <div className="bg-white p-6 border rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Pesanan</h2>
           <div className="space-y-4">
@@ -58,7 +60,7 @@ export default function NotaPage() {
             onClick={handlePrint}
             className="my-5 border p-2 rounded bg-gray-300 w-1/4 "
           >
-            Print Nota
+            Pesan Sekarang
           </button>
         </div>
       </div>

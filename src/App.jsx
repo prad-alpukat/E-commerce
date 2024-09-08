@@ -11,7 +11,7 @@ import UserPages from "./pages/UserPages";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPages";
 import FavoriteProduct from "./components/FavoriteProduct";
-
+import DashboardProducts from "./dasboardadmin/DasboardProducts";
 export default function App() {
   return (
     <BrowserRouter>
@@ -27,6 +27,7 @@ export default function App() {
         <Route path="/categories/:category" element={<CategoriesProducts />} />
         <Route path="/checkout" element={<CheckoutPages />} />
         <Route path="/nota" element={<NotaPage />} />
+        <Route path="/dashboard" element={<DashboardProducts />} />
       </Routes>
       <Footer />
     </BrowserRouter>

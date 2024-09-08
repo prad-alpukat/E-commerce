@@ -35,20 +35,20 @@ export default function CartProducts() {
             <ul>
               {cart.map((item) => (
                 <li key={item.id} className="mb-4">
-                  <div className="border p-4 rounded flex items-center bg-white text-black">
+                  <div className="border p-4 rounded flex items-center  text-white">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-24 bg-white object-cover mr-4"
+                      className="w-24 bg-white object-cover mr-4 px-4 py-10 rounded"
                     />
-                    <div>
+                    <div className="flex-1 glass backdrop-brightness-50 py-2 px-5 rounded">
                       <h2 className="text-xl font-semibold">{item.title}</h2>
                       <p>Price: $ {item.price}</p>
                       <p>Quantity: {item.quantity}</p>
                       <p>Total: $ {(item.price * item.quantity).toFixed(2)}</p>
                       <button
                         onClick={() => removeFromCart(item.id)}
-                        className="border p-2 rounded bg-red-300 mt-2"
+                        className="border p-2 rounded bg-yellow-400 mt-2"
                       >
                         Remove
                       </button>

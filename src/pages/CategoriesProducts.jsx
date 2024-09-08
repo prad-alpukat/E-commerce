@@ -18,7 +18,9 @@ export default function CategoriesProducts() {
 
   useEffect(() => {
     if (selectedCategory) {
-      fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`)
+      fetch(
+        `https://fakestoreapi.com/products/category/${selectedCategory}?limit=4`
+      )
         .then((res) => res.json())
         .then((data) => setProducts(data))
         .catch((error) => console.error("Error fetching products:", error));
@@ -36,7 +38,7 @@ export default function CategoriesProducts() {
   };
 
   return (
-    <div className="container p-4 ">
+    <div className="container p-4 mx-auto   ">
       <h1 className="text-3xl font-bold mb-4 text-white">
         Products by Category
       </h1>

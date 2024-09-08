@@ -1,17 +1,18 @@
 import React from "react";
 import Header from "../components/Header";
-import { Link } from "react-router-dom";
 import CategoriesProducts from "./CategoriesProducts";
 import HeroPages from "./HeroPages";
 import FavoriteProduct from "../components/FavoriteProduct";
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-t from-[#20a8ac]  to-[#060606]">
+    <div className="bg-gradient-to-l from-[#1e8e92]  to-[#060606] ">
       <Header />
 
       <HeroPages />
-      <FavoriteProduct />
+      <div className="my-10">
+        <FavoriteProduct />
+      </div>
 
       <CategoriesProducts />
     </div>

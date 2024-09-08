@@ -1,6 +1,9 @@
 import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Partner() {
+  AOS.init();
   return (
     <div>
       <section class="py-10  sm:py-16 lg:py-24 ">
@@ -11,12 +14,17 @@ export default function Partner() {
             </h2>
           </div>
 
-          <div class="grid items-center grid-cols-2 gap-10 mt-12 md:grid-cols-4 sm:gap-y-16">
-            <div className=" glass backdrop-brightness-50 py-10 rounded px-4">
+          <div class="grid items-center sm:grid-cols-1 gap-10 mt-12 md:grid-cols-4 sm:gap-y-16">
+            <div
+              className="glass backdrop-brightness-50 py-10 rounded px-4 md:px-6 lg:px-4"
+              data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
               <svg
-                class="object-contain w-auto mx-auto h-14"
+                class="object-contain w-full mx-auto h-14"
                 id="logo-77"
-                width="105"
+                width=""
                 height="40"
                 viewBox="0 0 105 40"
                 fill="none"
@@ -87,9 +95,14 @@ export default function Partner() {
               </svg>
             </div>
 
-            <div className="glass backdrop-brightness-50 py-10 rounded px-4">
+            <div
+              className="glass backdrop-brightness-50 py-10 rounded px-4 md:px-6 lg:px-4"
+              data-aos="fade-up"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
               <svg
-                class="object-contain w-auto mx-auto h-14"
+                class="object-contain w-full mx-auto h-14"
                 xmlns="http://www.w3.org/2000/svg"
                 width="54"
                 height="41"
@@ -115,11 +128,16 @@ export default function Partner() {
               </svg>
             </div>
 
-            <div className=" glass backdrop-brightness-50 py-10 rounded px-4">
+            <div
+              className=" glass backdrop-brightness-50 py-10 rounded px-4 md:px-6 lg:px-4"
+              data-aos="fade-down"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
               <svg
-                class="object-contain w-auto mx-auto h-14"
+                class="object-contain w-full mx-auto h-14"
                 id="logo-77"
-                width="105"
+                width=""
                 height="40"
                 viewBox="0 0 105 40"
                 fill="none"
@@ -190,9 +208,14 @@ export default function Partner() {
               </svg>
             </div>
 
-            <div className="glass backdrop-brightness-50 py-10 rounded px-4">
+            <div
+              className="glass backdrop-brightness-50 py-10 rounded px-4 md:px-6 lg:px-4"
+              data-aos="fade-left"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
               <svg
-                class="object-contain w-auto mx-auto h-14"
+                class="object-contain w-full mx-auto h-14"
                 xmlns="http://www.w3.org/2000/svg"
                 width="54"
                 height="41"

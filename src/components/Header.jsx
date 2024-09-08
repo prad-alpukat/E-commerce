@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../contexts/CartContext"; // Import useCart
-import LogoutButton from "./LogoutButton";
 
 export default function Header() {
   const { cart } = useCart(); // Get cart data from context
+  const location = useLocation();
 
   // Calculate total number of items in the cart
   const getTotalItems = () => {
@@ -14,6 +14,7 @@ export default function Header() {
   const totalItems = getTotalItems();
   const displayItems = totalItems > 99 ? "99+" : totalItems;
 
+  const currentPage = location.pathname === "/home";
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#100F0F] text-white py-5 px-10">
       <div className="container mx-auto flex justify-between items-center">
@@ -22,12 +23,30 @@ export default function Header() {
           <h1 className="text-3xl font-bold">Toko Online </h1>
         </Link>
 
-        <nav className="hidden md:flex gap-4 items-center text-xl">
+        <nav
+          className={` ${
+            currentPage ? "text-yellow-400" : "text-white"
+          } font-semibold items-center `}
+        >
           <Link to="/home">Home</Link>
-          <Link to="/products">All Products</Link>
         </nav>
 
         <div className="flex items-center gap-4 relative text-xl">
+          {/* icon for all product */}
+          <Link to="/products">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.5em"
+              height="1.5em"
+              viewBox="0 0 1024 1024"
+            >
+              <path
+                fill="currentColor"
+                fill-rule="evenodd"
+                d="M464 144c8.837 0 16 7.163 16 16v304c0 8.836-7.163 16-16 16H160c-8.837 0-16-7.164-16-16V160c0-8.837 7.163-16 16-16zm-52 68H212v200h200zm493.333 87.686c6.248 6.248 6.248 16.379 0 22.627l-181.02 181.02c-6.248 6.248-16.378 6.248-22.627 0l-181.019-181.02c-6.248-6.248-6.248-16.379 0-22.627l181.02-181.02c6.248-6.248 16.378-6.248 22.627 0zm-84.853 11.313L713 203.52L605.52 311L713 418.48zM464 544c8.837 0 16 7.164 16 16v304c0 8.837-7.163 16-16 16H160c-8.837 0-16-7.163-16-16V560c0-8.836 7.163-16 16-16zm-52 68H212v200h200zm452-68c8.837 0 16 7.164 16 16v304c0 8.837-7.163 16-16 16H560c-8.837 0-16-7.163-16-16V560c0-8.836 7.163-16 16-16zm-52 68H612v200h200z"
+              />
+            </svg>
+          </Link>
           {/* Cart Icon */}
           <Link to="/cart" className="relative">
             <svg
