@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPages";
 import FavoriteProduct from "./components/FavoriteProduct";
 import DashboardProducts from "./dasboardadmin/DasboardProducts";
+import EditProduct from "./dasboardadmin/EditProduct";
+import CreateProduct from "./dasboardadmin/CreateProduct";
 export default function App() {
   return (
     <BrowserRouter>
@@ -28,6 +30,8 @@ export default function App() {
         <Route path="/checkout" element={<CheckoutPages />} />
         <Route path="/nota" element={<NotaPage />} />
         <Route path="/dashboard" element={<DashboardProducts />} />
+        <Route path="/edit/:id" element={<EditProduct />} />
+        <Route path="/create" element={<CreateProduct />} />
       </Routes>
       <Footer />
     </BrowserRouter>
