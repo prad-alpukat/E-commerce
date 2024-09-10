@@ -11,7 +11,7 @@ export default function HeroPages() {
       data-aos-offset="300"
       data-aos-easing="ease-in-sine"
     >
-      <div className=" container mx-auto p-6 pt-20 flex flex-col items-center justify-center mt-10 h-144  text-center  ">
+      <div className=" container mx-auto  flex flex-col items-center justify-center  h-144  text-center  ">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 text-white">
           Welcome to <span className="text-yellow-400">My Online Store</span>
         </h1>

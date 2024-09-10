@@ -14,6 +14,7 @@ import FavoriteProduct from "./components/FavoriteProduct";
 import DashboardProducts from "./dasboardadmin/DasboardProducts";
 import EditProduct from "./dasboardadmin/EditProduct";
 import CreateProduct from "./dasboardadmin/CreateProduct";
+import OverView from "./ui/OverView";
 export default function App() {
   return (
     <BrowserRouter>
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/dashboard" element={<DashboardProducts />} />
         <Route path="/edit/:id" element={<EditProduct />} />
         <Route path="/create" element={<CreateProduct />} />
+        <Route path="/overview" element={<OverView />} />
       </Routes>
       <Footer />
     </BrowserRouter>
