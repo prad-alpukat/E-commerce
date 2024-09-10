@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -26,15 +27,29 @@ const EditProduct = () => {
     const { name, value } = e.target;
     setProduct((prevState) => ({ ...prevState, [name]: value }));
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await axios.put(`https://fakestoreapi.com/products/${id}`, product);
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Error updating product:", error);
-    }
+
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.put(`https://fakestoreapi.com/products/${id}`, product);
+          Swal.fire("Saved!", "", "success").then(() => {
+            navigate("/dashboard");
+          });
+        } catch (error) {
+          console.error("Error updating product:", error);
+        }
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
   };
 
   return (
