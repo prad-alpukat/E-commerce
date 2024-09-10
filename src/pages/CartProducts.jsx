@@ -33,7 +33,7 @@ export default function CartProducts() {
   };
 
   return (
-    <div className="mt-16 bg-slate-800 min-h-screen">
+    <div className="pt-20 bg-slate-800 min-h-screen">
       <Header /> {/* Komponen Header ditampilkan di bagian atas */}
       {/* Tombol untuk kembali ke halaman sebelumnya */}
       <button

@@ -44,7 +44,7 @@ export default function UserPages() {
   return (
     <div className="min-h-screen">
       <Header />
-      <div className="container mx-auto p-6 mt-20">
+      <div className="container mx-auto p-6 pt-20">
         <button
           onClick={handleBack}
           className="my-2 border p-2 rounded bg-gray-300"
