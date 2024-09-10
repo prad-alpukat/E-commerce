@@ -34,7 +34,7 @@ export default function ProductsList() {
   };
 
   return (
-    <div className="mt-16 bg-slate-800">
+    <div className="pt-20 bg-slate-800 min-h-screen">
       <Header />
       <button
         onClick={handleBack}
@@ -42,15 +42,44 @@ export default function ProductsList() {
       >
         Back
       </button>
-      <div className="p-4">
-        <input
-          type="text"
-          placeholder="Search products... (eg. Shirt)"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="border p-2 rounded w-full mb-4"
-        />
+
+      <div class="  flex justify-center items-center">
+        <div class="container mx-auto glass backdrop-brightness-50 rounded-lg p-14">
+          <form>
+            <h1 class="text-center font-bold text-white text-4xl">
+              Temukan Produk Yang Anda Inginkan
+            </h1>
+            <p class="mx-auto font-normal text-sm my-6 max-w-lg"></p>
+            <div class="sm:flex items-center bg-white rounded-full overflow-hidden px-2 py-2 justify-between">
+              <div class="grid place-items-center h-full w-12 text-gray-300 ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+              <input
+                class="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
+                type="text"
+                id="search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search something.."
+              />
+            </div>
+          </form>
+        </div>
       </div>
+
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
@@ -78,7 +107,7 @@ export default function ProductsList() {
             </div>
           ))
         ) : (
-          <p>No products found</p>
+          <p className="text-white">No products found</p>
         )}
       </ul>
     </div>

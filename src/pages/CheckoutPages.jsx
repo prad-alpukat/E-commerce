@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function CheckoutPage() {
   const { cart } = useCart();
@@ -15,9 +16,20 @@ export default function CheckoutPage() {
   );
 
   const handleCheckout = () => {
-    // Navigasi ke halaman struk nota dengan data checkout
-    navigate("/nota", {
-      state: { cart, totalAmount, name, address, paymentMethod },
+    Swal.fire({
+      title: "Konfirmasi Checkout",
+      text: "Apakah Anda yakin ingin melanjutkan ke pembayaran?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Ya, lanjutkan",
+      cancelButtonText: "Batal",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Jika pengguna mengkonfirmasi, navigasi ke halaman struk nota
+        navigate("/nota", {
+          state: { cart, totalAmount, name, address, paymentMethod },
+        });
+      }
     });
   };
 
