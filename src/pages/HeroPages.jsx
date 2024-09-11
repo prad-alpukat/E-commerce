@@ -37,8 +37,9 @@ export default function HeroPages() {
           </svg>
         </Link>
       </div>
-
-      <Partner />
+      <div className="mb-8">
+        <Partner />
+      </div>
     </div>
   );
 }

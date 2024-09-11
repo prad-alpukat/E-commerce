@@ -14,12 +14,12 @@ export default function Header() {
   const totalItems = getTotalItems();
   const displayItems = totalItems > 99 ? "99+" : totalItems;
 
-  const currentPage = location.pathname === "/home";
+  const currentPage = location.pathname === "/";
   return (
-    <header className="fixed top-0 left-0 w-full z-50 glass backdrop-brightness-50 text-white py-5 px-10">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="fixed top-0  w-full z-50 glass backdrop-brightness-50 text-white py-5 px-10 items-center">
+      <div className="container flex justify-between items-center ">
         {/* Logo */}
-        <Link to="/home">
+        <Link to="/">
           <svg
             id="logo-29"
             width="10rem"
@@ -58,13 +58,14 @@ export default function Header() {
           </svg>
         </Link>
 
-        <nav
+        <Link
+          to="/"
           className={` ${
             currentPage ? "text-yellow-400" : "text-white"
-          } font-semibold items-center `}
+          } font-semibold items-center  `}
         >
-          <Link to="/home">Home</Link>
-        </nav>
+          Home
+        </Link>
 
         <div className="flex items-center gap-4 relative text-xl">
           {/* icon for all product */}
@@ -100,37 +101,6 @@ export default function Header() {
                 {displayItems}
               </div>
             )}
-          </Link>
-
-          {/* User Icon */}
-          <Link to="/user">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1.5em"
-              height="1.5em"
-              viewBox="0 0 24 24"
-            >
-              <g fill="none">
-                <path
-                  fill="currentColor"
-                  d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2"
-                  opacity="0.16"
-                />
-                <path
-                  stroke="currentColor"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"
-                />
-                <circle
-                  cx="12"
-                  cy="7"
-                  r="3"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-              </g>
-            </svg>
           </Link>
         </div>
       </div>

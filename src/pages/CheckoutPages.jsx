@@ -8,6 +8,7 @@ export default function CheckoutPage() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("creditCard");
+  const [title, setTitle] = useState("");
   const navigate = useNavigate();
 
   const totalAmount = cart.reduce(
@@ -26,15 +27,19 @@ export default function CheckoutPage() {
     }).then((result) => {
       if (result.isConfirmed) {
         // Jika pengguna mengkonfirmasi, navigasi ke halaman struk nota
-        navigate("/nota", {
-          state: { cart, totalAmount, name, address, paymentMethod },
-        });
+        handlePesan();
       }
     });
   };
 
   const handleBack = () => {
     window.history.back();
+  };
+
+  // Fungsi untuk menangani aksi klik pada tombol "Pesan Sekarang"
+  const handlePesan = () => {
+    // Redirect ke WhatsApp dengan format pesan yang telah ditentukan
+    window.location.href = `https://wa.me/+6282290525240?text=${`Halo kak, nama saya ${name} saya ingin memesan ${cart[0]["title"]}  dengan total belanja $ ${totalAmount} dengan metode pembayaran ${paymentMethod} dan alamat ${address}`}`;
   };
 
   return (
@@ -133,6 +138,7 @@ export default function CheckoutPage() {
             </div>
             <button
               type="submit"
+              onSubmit={handlePesan}
               className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out"
             >
               Pembayaran Berhasil
