@@ -27,7 +27,7 @@ export default function LoginPage() {
       if (response.ok) {
         localStorage.setItem("userToken", data.token);
 
-        // Mengambil data pengguna untuk disimpan di localStorage
+        // Fetch user data
         const userResponse = await fetch("https://fakestoreapi.com/users", {
           headers: {
             Authorization: `Bearer ${data.token}`,
@@ -36,28 +36,28 @@ export default function LoginPage() {
         const userData = await userResponse.json();
 
         if (userResponse.ok) {
-          localStorage.setItem("userData", JSON.stringify(userData[0])); // Asumsi bahwa pengguna pertama adalah pengguna yang login
+          localStorage.setItem("userData", JSON.stringify(userData[0]));
         }
 
         Swal.fire({
           icon: "success",
-          title: "Login Berhasil",
-          text: "Anda berhasil masuk!",
+          title: "Login Successful",
+          text: "You have successfully logged in!",
         }).then(() => {
-          navigate("/home"); // Redirect ke halaman pengguna setelah login
+          navigate("/dashboard");
         });
       } else {
         Swal.fire({
           icon: "error",
-          title: "Login Gagal",
-          text: data.message || "Kredensial tidak valid.",
+          title: "Login Failed",
+          text: data.message || "Invalid credentials.",
         });
       }
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "Terjadi kesalahan saat mencoba masuk.",
+        text: "An error occurred while trying to log in.",
       });
     } finally {
       setLoading(false);
@@ -145,7 +145,7 @@ export default function LoginPage() {
             }`}
             disabled={loading}
           >
-            {loading ? "Sedang masuk..." : "Login"}
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
       </div>

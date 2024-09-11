@@ -1,56 +1,77 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import NavbarDashboard from "./NavbarDashboard";
 
 const DashboardProducts = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const token = localStorage.getItem("userToken"); // Mengambil token dari localStorage
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
+    // Fungsi untuk memeriksa autentikasi dan mengambil produk
+    const fetchDashboard = async () => {
+      if (token) {
+        try {
+          // Mengambil produk hanya jika token tersedia
+          const response = await axios.get("https://fakestoreapi.com/products");
+          setProducts(response.data);
+        } catch (error) {
+          console.error("Terjadi kesalahan saat mengambil produk:", error);
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        // Arahkan ke halaman login jika token tidak ditemukan
+        navigate("/login");
       }
     };
 
-    fetchProducts();
-  }, []);
+    fetchDashboard();
+  }, [token, navigate]);
 
   const deleteProduct = async (id) => {
     try {
       await axios.delete(`https://fakestoreapi.com/products/${id}`);
       setProducts(products.filter((product) => product.id !== id));
     } catch (error) {
-      console.error("Error deleting product:", error);
+      console.error("Terjadi kesalahan saat menghapus produk:", error);
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="p-6 max-w-7xl mx-auto">
+      <div className="mb-20">
+        <NavbarDashboard />
+      </div>
       <h1 className="text-4xl font-extrabold mb-6 text-gray-900">
-        Product List
+        Daftar Produk
       </h1>
       <Link
-        to="/create"
+        to="products/create"
         className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
       >
-        Create New Product
+        Buat Produk Baru
       </Link>
+
       <div className="mt-8 overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200 bg-white shadow-md rounded-lg">
           <thead className="bg-gray-800 text-white">
             <tr>
               <th className="px-6 py-3 text-left text-sm font-semibold">ID</th>
               <th className="px-6 py-3 text-left text-sm font-semibold">
-                Title
+                Judul
               </th>
               <th className="px-6 py-3 text-left text-sm font-semibold">
-                Price
+                Harga
               </th>
               <th className="px-6 py-3 text-left text-sm font-semibold">
-                Actions
+                Aksi
               </th>
             </tr>
           </thead>
@@ -71,7 +92,7 @@ const DashboardProducts = () => {
                 </td>
                 <td className="px-6 py-4 text-sm font-medium">
                   <Link
-                    to={`/edit/${product.id}`}
+                    to={`products/edit/${product.id}`}
                     className="text-blue-500 hover:text-blue-700 transition duration-300 mr-4"
                   >
                     Edit
@@ -80,7 +101,7 @@ const DashboardProducts = () => {
                     onClick={() => deleteProduct(product.id)}
                     className="text-red-500 hover:text-red-700 transition duration-300"
                   >
-                    Delete
+                    Hapus
                   </button>
                 </td>
               </tr>
