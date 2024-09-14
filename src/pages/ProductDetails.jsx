@@ -81,7 +81,7 @@ export default function ProductDetails() {
   };
 
   return (
-    <div className="pt-20 bg-slate-800 min-h-screen">
+    <div className="pt-20 bg-gradient-to-l from-[#1e8e92]  to-[#060606] min-h-screen">
       <Header />
       {/* Tombol untuk kembali ke halaman sebelumnya */}
       <button
