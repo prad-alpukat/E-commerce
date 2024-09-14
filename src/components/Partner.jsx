@@ -8,13 +8,7 @@ export default function Partner() {
     <div>
       <section class="">
         <div class="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
-          <div class="text-center">
-            <h2 class="text-xl font-medium text-white">
-              Trusted by world class creators
-            </h2>
-          </div>
-
-          <div class="grid items-center sm:grid-cols-1 gap-10 mt-12 md:grid-cols-4 sm:gap-y-16">
+          <div class="grid items-center sm:grid-cols-1 gap-10 mb-10 pb-10 md:grid-cols-4 sm:gap-y-16">
             <div
               className="glass backdrop-brightness-50 py-10 rounded px-4 md:px-6 lg:px-4"
               data-aos="fade-right"

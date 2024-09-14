@@ -48,18 +48,18 @@ const CreateProduct = () => {
   };
 
   return (
-    <div className="min-h-screen my-20 ">
-      <div className="p-6 max-w-lg mx-auto  rounded-lg shadow-lg bg-glass backdrop-blur-lg ">
-        <h1 className="text-3xl font-bold mb-6 text-gray-800">
+    <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-blue-200 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg border border-gray-200 bg-opacity-80 backdrop-blur-sm">
+        <h1 className="text-3xl font-bold mb-6 text-gray-900">
           Create Product
         </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex flex-col">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
             <label
               htmlFor="title"
-              className="text-lg font-medium text-gray-700 mb-2"
+              className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Title:
+              Title
             </label>
             <input
               type="text"
@@ -68,15 +68,16 @@ const CreateProduct = () => {
               value={product.title}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+              placeholder="Enter product title"
             />
           </div>
-          <div className="flex flex-col">
+          <div>
             <label
               htmlFor="price"
-              className="text-lg font-medium text-gray-700 mb-2"
+              className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Price:
+              Price
             </label>
             <input
               type="number"
@@ -85,14 +86,15 @@ const CreateProduct = () => {
               value={product.price}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+              placeholder="Enter product price"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+            className="w-full bg-blue-600 text-white py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
           >
-            Create
+            Create Product
           </button>
         </form>
       </div>

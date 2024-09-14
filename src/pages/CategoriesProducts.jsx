@@ -87,7 +87,7 @@ export default function CategoriesProducts() {
             <img
               src={product.image}
               alt={product.title}
-              className="mx-auto py-4 aspect-square w-full object-contain"
+              className="mx-auto py-4 aspect-square w-full object-contain hover:scale-110 transition duration-300 ease-in-out"
             />
             {/* Menampilkan harga dan kategori produk */}
             <p className="text-lg font-bold mb-2">$ {product.price}</p>

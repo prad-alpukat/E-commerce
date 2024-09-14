@@ -16,7 +16,7 @@ export default function FavoriteProduct() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "https://fakestoreapi.com/products?limit=4"
+          "https://fakestoreapi.com/products?limit=10"
         );
         setProducts(response.data);
       } catch (err) {
@@ -34,11 +34,15 @@ export default function FavoriteProduct() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="container mx-auto  p-6">
+    <div className="container mx-auto p-6 mt-10">
       <h1 className="text-3xl font-bold mb-6 text-center text-white">
         Favorite Products
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <p className="text-lg mb-6 text-center text-white">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus faucibus
+        massa dignissim tempus.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {products.map((product) => (
           <div
             key={product.id}
@@ -50,10 +54,13 @@ export default function FavoriteProduct() {
             <img
               src={product.image}
               alt={product.name}
-              className="mx-auto py-4 aspect-square w-full object-contain"
+              className="mx-auto py-4 aspect-square w-full object-contain hover:scale-110 transition duration-300"
             />
-            <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-            <p className="text-lg font-bold mb-4">$ {product.price}</p>
+
+            <div className="grid grid-cols-2 gap-4">
+              <h2 className="text-md font-bold mb-2">{product.category}</h2>
+              <p className=" text-lg font-bold mb-4">$ {product.price}</p>
+            </div>
           </div>
         ))}
       </div>

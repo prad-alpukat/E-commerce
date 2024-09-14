@@ -28,7 +28,7 @@ export default function OverView() {
             <img
               src={product.image}
               alt={product.title}
-              className="mx-auto py-4 aspect-square w-full object-contain"
+              className="mx-auto py-4 aspect-square w-full object-contain hover:scale-110 transition duration-300"
             />
             <p className="text-gray-600">${product.price}</p>
           </div>

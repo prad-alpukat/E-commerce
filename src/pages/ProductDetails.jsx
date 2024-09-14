@@ -1,3 +1,4 @@
+// src/pages/ProductDetails.js
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
@@ -75,79 +76,83 @@ export default function ProductDetails() {
 
   // Kembali ke halaman sebelumnya
   const handleBack = () => {
-    // Menggunakan navigate
-    // navigate(-1); // Mengembalikan ke halaman sebelumnya menggunakan hook useNavigate
     window.history.back(); // Mengembalikan ke halaman sebelumnya menggunakan window.history
   };
 
   return (
-    <div className="pt-20 bg-gradient-to-l from-[#1e8e92]  to-[#060606] min-h-screen">
+    <div className="bg-gray-900 min-h-screen flex flex-col">
       <Header />
-      {/* Tombol untuk kembali ke halaman sebelumnya */}
       <button
         onClick={handleBack}
-        className="mx-4 border p-2 rounded bg-gray-300 mb-4 mt-5"
+        className="fixed mt-4 top-20 left-4 border p-3 rounded-full bg-gray-800 text-white flex items-center hover:bg-gray-700 transition-colors duration-300"
       >
-        Back
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+        <span className="ml-2">Back</span>
       </button>
 
-      <div className="container p-4 grid md:grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Bagian untuk menampilkan gambar produk */}
-        <div className="border-2 rounded p-4 bg-white">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="mx-auto p-4 h-96 w-96"
-          />
-        </div>
-        {/* Bagian untuk menampilkan detail produk dan kontrol kuantitas */}
-        <div className="p-4 flex flex-col justify-center text-white glass backdrop-brightness-50 backdrop-blur-sm rounded">
-          <h1 className="text-2xl font-bold py-3">{product.title}</h1>
-          <p className="text-xl">{product.category}</p>
-          <p className="text-xl font-bold py-2">$ {product.price}</p>
+      <div className="flex-grow p-6 md:p-12 lg:p-16 mt-28">
+        <div className="container mx-auto bg-gray-800 rounded-lg shadow-lg p-6 lg:flex lg:items-center lg:space-x-12">
+          <div className="bg-gray-900 p-4 rounded-lg flex justify-center items-center overflow-hidden">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="object-cover h-96 w-full lg:w-96 lg:h-auto rounded-lg shadow-lg"
+            />
+          </div>
+          <div className="text-white mt-6 lg:mt-0 lg:flex-grow lg:flex lg:flex-col lg:justify-center">
+            <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
+            <p className="text-lg mb-4">{product.category}</p>
+            <p className="text-xl font-bold mb-6">$ {product.price}</p>
 
-          <div className="py-4 flex items-center gap-4">
-            {/* Kontrol kuantitas */}
-            <div className="py-4 flex items-center">
+            <div className="flex items-center mb-6">
               <button
                 onClick={handleDecrease}
-                className="border p-2 rounded mr-2"
+                className="bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300"
                 aria-label="Decrease quantity"
               >
                 -
               </button>
-              <span className="text-lg mx-2">{quantity}</span>
+              <span className="mx-4 text-xl">{quantity}</span>
               <button
                 onClick={handleIncrease}
-                className="border p-2 rounded ml-2"
+                className="bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600 transition-colors duration-300"
                 aria-label="Increase quantity"
               >
                 +
               </button>
             </div>
 
-            {/* Menampilkan total harga */}
-            <div className="py-4">
+            <div className="mb-6">
               <p className="text-xl font-bold">
                 Total Price: $ {total.toFixed(2)}
               </p>
             </div>
-          </div>
 
-          {/* Tombol untuk menambahkan ke keranjang dan membeli sekarang */}
-          <div className="py-4 text-black">
-            <button
-              onClick={handleAddToCart}
-              className="border p-2 rounded bg-yellow-400 mr-2"
-            >
-              Add to Cart
-            </button>
-            <button
-              onClick={handleBuyNow}
-              className="border p-2 rounded bg-yellow-400 ml-2"
-            >
-              Buy Now
-            </button>
+            <div className="flex space-x-4">
+              <button
+                onClick={handleAddToCart}
+                className="bg-yellow-500 text-gray-900 py-2 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
+              >
+                Add to Cart
+              </button>
+              <button
+                onClick={handleBuyNow}
+                className="bg-yellow-500 text-gray-900 py-2 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition-colors duration-300"
+              >
+                Buy Now
+              </button>
+            </div>
           </div>
         </div>
       </div>

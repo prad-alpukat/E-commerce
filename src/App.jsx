@@ -6,13 +6,11 @@ import CartProducts from "./pages/CartProducts";
 import CategoriesProducts from "./pages/CategoriesProducts";
 import CheckoutPages from "./pages/CheckoutPages";
 import LoginPages from "./pages/LoginPages";
-
 import Footer from "./components/Footer";
-import FavoriteProduct from "./components/FavoriteProduct";
 import DashboardProducts from "./dasboardadmin/DasboardProducts";
 import EditProduct from "./dasboardadmin/EditProduct";
 import CreateProduct from "./dasboardadmin/CreateProduct";
-import OverView from "./ui/OverView";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,17 +18,13 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/favorites" element={<FavoriteProduct />} />
         <Route path="/cart" element={<CartProducts />} />
-
         <Route path="/categories/:category" element={<CategoriesProducts />} />
         <Route path="/checkout" element={<CheckoutPages />} />
-
         <Route path="/dashboard" element={<DashboardProducts />} />
         <Route path="/dashboard/login" element={<LoginPages />} />
         <Route path="/dashboard/products/edit/:id" element={<EditProduct />} />
         <Route path="/dashboard/products/create" element={<CreateProduct />} />
-        <Route path="/overview" element={<OverView />} />
       </Routes>
       <Footer />
     </BrowserRouter>

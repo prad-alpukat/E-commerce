@@ -1,3 +1,4 @@
+// src/pages/LoginPage.jsx
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -65,11 +66,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-100 to-blue-200 p-6">
+      <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+          Login
+        </h1>
         <form onSubmit={handleLogin}>
-          <div className="mb-4">
+          <div className="mb-5">
             <label
               htmlFor="username"
               className="block text-sm font-medium text-gray-700 mb-2"
@@ -82,7 +85,7 @@ export default function LoginPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className="w-full p-2 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300 ease-in-out"
             />
           </div>
           <div className="mb-6 relative">
@@ -98,12 +101,12 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full p-2 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300 ease-in-out"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-2 top-3/4 inset-y-0 -bottom-36 transform -translate-y-1/2 text-gray-600"
+              className="absolute right-3 top-3/4 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition duration-300 ease-in-out"
             >
               {showPassword ? (
                 <svg
@@ -140,7 +143,7 @@ export default function LoginPage() {
           </div>
           <button
             type="submit"
-            className={`w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out ${
+            className={`w-full bg-indigo-600 text-white p-3 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out ${
               loading ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={loading}
