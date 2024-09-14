@@ -55,7 +55,12 @@ export default function SpesialEdition() {
             </h4>
           </div> */}
           <div className="grid grid-cols-1 gap-6 px-6 mt-8 sm:px-0 lg:mt-16 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12 ">
-            <div className="overflow-hidden bg-white border border-gray-200 rounded-lg">
+            <div
+              className="overflow-hidden bg-white border border-gray-200 rounded-lg"
+              data-aos="fade-right"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
               <div className="px-4 py-6">
                 <div className="flex items-start">
                   <svg
@@ -81,7 +86,12 @@ export default function SpesialEdition() {
                 </div>
               </div>
             </div>
-            <div className="overflow-hidden bg-white border border-gray-200 rounded-lg">
+            <div
+              className="overflow-hidden bg-white border border-gray-200 rounded-lg"
+              data-aos="fade-down"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
               <div className="px-4 py-6">
                 <div className="flex items-start">
                   <svg
@@ -107,7 +117,12 @@ export default function SpesialEdition() {
                 </div>
               </div>
             </div>
-            <div className="overflow-hidden bg-white border border-gray-200 rounded-lg">
+            <div
+              className="overflow-hidden bg-white border border-gray-200 rounded-lg"
+              data-aos="fade-up"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
               <div className="px-4 py-6">
                 <div className="flex items-start">
                   <svg
@@ -133,7 +148,12 @@ export default function SpesialEdition() {
                 </div>
               </div>
             </div>
-            <div className="overflow-hidden bg-white border border-gray-200 rounded-lg">
+            <div
+              className="overflow-hidden bg-white border border-gray-200 rounded-lg"
+              data-aos="fade-left"
+              data-aos-offset="300"
+              data-aos-easing="ease-in-sine"
+            >
               <div className="px-4 py-6">
                 <div className="flex items-start">
                   <svg
